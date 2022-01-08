@@ -12,7 +12,7 @@ This project was initialised using CRA. It has the following dependencies:
 
 To run the app in the development mode,
 
--   Clone the project
+-   Clone the project.
 -   Run `npm install`
 -   Make sure the above dependencies are installed.
 -   Run `npm start`
