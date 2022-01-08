@@ -44,7 +44,7 @@ function App({ initialMode }) {
     useEffect(() => navigate("/" + mode), [mode]);
 
     return (
-        <Container className="mb-5">
+        <Container className="mb-5 mt-2">
             <div className="App">
                 <Header />
                 <Form onSubmit={handleSubmit}>
