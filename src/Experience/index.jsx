@@ -7,7 +7,10 @@ import { nanoid } from "nanoid";
 const Experience = () => {
     const [companyList, setCompanyList] = useState([]);
     const addCompany = () => {
-        setCompanyList((companyList) => [...companyList, { id: nanoid() }]);
+        setCompanyList((companyList) => [
+            ...companyList,
+            { id: nanoid(), name: "", degree: "", year: "" },
+        ]);
     };
     const deleteCompany = (id) => {
         setCompanyList((companyList) =>

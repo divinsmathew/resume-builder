@@ -55,12 +55,21 @@ body {
     margin-bottom: 0;
 }
 
-.create-button {
-    display: block;
-    margin-left: auto;
-    margin-top: 2rem;
+.button-holder {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        margin-left: 1rem;
+    }
 }
 
 .divider {
     border-top: #ccc 1px solid;
+}
+
+.info-field {
+    font-size: 1.1rem;
+    color: #838383;
 }
