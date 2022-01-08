@@ -11,7 +11,7 @@ const Company = ({ id, index, deleteCompany, mode }) => {
             <div className="item-header">
                 <span className="item-heading">Company {index + 1}</span>
 
-                {mode === "edit" && (
+                {(mode === "edit" || mode === "create") && (
                     <Button onClick={() => deleteCompany(id)} color="danger">
                         Delete
                     </Button>

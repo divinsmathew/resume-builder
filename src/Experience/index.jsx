@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Row } from "reactstrap";
 
 import Company from "./Company";
 import { nanoid } from "nanoid";
 
-const Experience = ({ mode }) => {
-    const [companyList, setCompanyList] = useState([]);
+const Experience = ({ mode, companyList, onChange }) => {
     const addCompany = () => {
-        setCompanyList((companyList) => [
+        onChange((companyList) => [
             ...companyList,
             { id: nanoid(), name: "", degree: "", year: "" },
         ]);
     };
     const deleteCompany = (id) => {
-        setCompanyList((companyList) =>
+        onChange((companyList) =>
             companyList.filter((company) => company.id !== id)
         );
     };
@@ -35,11 +34,11 @@ const Experience = ({ mode }) => {
                         />
                     ))
                 ) : (
-                    <div className="no-items">No items added.</div>
+                    <div className="no-items">No experience added.</div>
                 )}
             </Row>
 
-            {mode === "edit" && (
+            {(mode === "edit" || mode === "create") && (
                 <Button className="mb-3" onClick={addCompany}>
                     Add Company
                 </Button>

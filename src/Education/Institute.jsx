@@ -10,7 +10,7 @@ const Institute = ({ id, index, deleteInstitute, mode }) => {
         <div className="item-wrapper">
             <div className="item-header">
                 <span className="item-heading">Institute {index + 1}</span>
-                {mode === "edit" && (
+                {(mode === "edit" || mode === "create") && (
                     <Button onClick={() => deleteInstitute(id)} color="danger">
                         Delete
                     </Button>

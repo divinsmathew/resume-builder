@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormGroup, Label, Input, Row, Col } from "reactstrap";
 
-const PersonalInfo = ({ mode }) => {
-    const [firstName, setFirstName] = useState("");
-    const [secondName, setSecondName] = useState("");
-    const [email, setEmail] = useState("");
-    const [address, setAddress] = useState("");
-    const [phone, setPhone] = useState("");
-
+const PersonalInfo = ({ mode, data, onChange }) => {
     return (
         <Row className="mb-2" form>
             <div className="primary-heading mb-2">Personal Info</div>
@@ -21,11 +15,16 @@ const PersonalInfo = ({ mode }) => {
                                 id="first_name"
                                 name="first_name"
                                 placeholder="First Name"
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
+                                value={data.firstName}
+                                onChange={(e) =>
+                                    onChange({
+                                        ...data,
+                                        firstName: e.target.value,
+                                    })
+                                }
                             />
                         ) : (
-                            <div className="info-field">{firstName}</div>
+                            <div className="info-field">{data.firstName}</div>
                         )}
                     </FormGroup>
                 </Col>
@@ -38,11 +37,16 @@ const PersonalInfo = ({ mode }) => {
                                 id="second_name"
                                 name="second_name"
                                 placeholder="Second Name"
-                                value={secondName}
-                                onChange={(e) => setSecondName(e.target.value)}
+                                value={data.secondName}
+                                onChange={(e) =>
+                                    onChange({
+                                        ...data,
+                                        secondName: e.target.value,
+                                    })
+                                }
                             />
                         ) : (
-                            <div className="info-field">{secondName}</div>
+                            <div className="info-field">{data.secondName}</div>
                         )}
                     </FormGroup>
                 </Col>
@@ -58,11 +62,13 @@ const PersonalInfo = ({ mode }) => {
                                 name="email"
                                 placeholder="Email"
                                 type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={data.email}
+                                onChange={(e) =>
+                                    onChange({ ...data, email: e.target.value })
+                                }
                             />
                         ) : (
-                            <div className="info-field">{email}</div>
+                            <div className="info-field">{data.email}</div>
                         )}
                     </FormGroup>
                 </Col>
@@ -76,11 +82,13 @@ const PersonalInfo = ({ mode }) => {
                                 name="phone"
                                 placeholder="Phone"
                                 type="number"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
+                                value={data.phone}
+                                onChange={(e) =>
+                                    onChange({ ...data, phone: e.target.value })
+                                }
                             />
                         ) : (
-                            <div className="info-field">{phone}</div>
+                            <div className="info-field">{data.phone}</div>
                         )}
                     </FormGroup>
                 </Col>
@@ -94,11 +102,16 @@ const PersonalInfo = ({ mode }) => {
                                 name="text"
                                 placeholder="Address"
                                 type="textarea"
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
+                                value={data.address}
+                                onChange={(e) =>
+                                    onChange({
+                                        ...data,
+                                        address: e.target.value,
+                                    })
+                                }
                             />
                         ) : (
-                            <div className="info-field">{address}</div>
+                            <div className="info-field">{data.address}</div>
                         )}
                     </FormGroup>
                 </Col>

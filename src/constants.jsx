@@ -8,3 +8,11 @@ export const skillOptions = [
     { value: "C++", label: "C++" },
     { value: "Go", label: "Go" },
 ];
+
+export const defaultPersonalInfo = {
+    firstName: "",
+    secondName: "",
+    email: "",
+    address: "",
+    phone: "",
+};

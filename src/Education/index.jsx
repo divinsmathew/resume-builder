@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Row } from "reactstrap";
 
 import Institute from "./Institute";
 import { nanoid } from "nanoid";
 
-const Education = ({ mode }) => {
-    const [institutionList, setInstitutionList] = useState([]);
-
+const Education = ({ mode, institutionList, onChange }) => {
     const addInstitute = () => {
-        setInstitutionList((institutionList) => [
-            ...institutionList,
-            { id: nanoid() },
-        ]);
+        onChange((institutionList) => [...institutionList, { id: nanoid() }]);
     };
     const deleteInstitute = (id) => {
-        setInstitutionList((institutionList) =>
+        onChange((institutionList) =>
             institutionList.filter((institute) => institute.id !== id)
         );
     };
@@ -35,11 +30,11 @@ const Education = ({ mode }) => {
                         />
                     ))
                 ) : (
-                    <div className="no-items">No items added.</div>
+                    <div className="no-items">No education added.</div>
                 )}
             </Row>
 
-            {mode === "edit" && (
+            {(mode === "edit" || mode === "create") && (
                 <Button className="mb-3" onClick={addInstitute}>
                     Add Institute
                 </Button>

@@ -2,7 +2,7 @@ import React from "react";
 import { FormGroup, Col } from "reactstrap";
 import CreatableSelect from "react-select/creatable";
 
-import { skillOptions } from "./constants";
+import { skillOptions } from "../constants";
 
 const Skills = ({ onChange, skillList, mode }) => (
     <Col md={12} className="divider">
@@ -19,7 +19,11 @@ const Skills = ({ onChange, skillList, mode }) => (
                 />
             ) : (
                 <div className="info-field">
-                    {skillList.map((skill) => skill.label).join(", ")}
+                    {skillList.length > 0 ? (
+                        skillList.map((skill) => skill.label).join(", ")
+                    ) : (
+                        <div className="no-items">No skills added.</div>
+                    )}
                 </div>
             )}
         </FormGroup>
