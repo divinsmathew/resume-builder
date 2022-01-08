@@ -4,7 +4,7 @@ import { Button, Row } from "reactstrap";
 import Institute from "./Institute";
 import { nanoid } from "nanoid";
 
-const Education = () => {
+const Education = ({ mode }) => {
     const [institutionList, setInstitutionList] = useState([]);
 
     const addInstitute = () => {
@@ -26,8 +26,9 @@ const Education = () => {
                 {institutionList.length > 0 ? (
                     institutionList.map((institution, index) => (
                         <Institute
-                            data={institution}
                             key={institution.id}
+                            mode={mode}
+                            data={institution}
                             index={index}
                             deleteInstitute={deleteInstitute}
                             id={institution.id}
@@ -38,9 +39,11 @@ const Education = () => {
                 )}
             </Row>
 
-            <Button className="mb-3" onClick={addInstitute}>
-                Add Institute
-            </Button>
+            {mode === "edit" && (
+                <Button className="mb-3" onClick={addInstitute}>
+                    Add Institute
+                </Button>
+            )}
         </>
     );
 };

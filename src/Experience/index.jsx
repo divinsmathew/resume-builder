@@ -4,7 +4,7 @@ import { Button, Row } from "reactstrap";
 import Company from "./Company";
 import { nanoid } from "nanoid";
 
-const Experience = () => {
+const Experience = ({ mode }) => {
     const [companyList, setCompanyList] = useState([]);
     const addCompany = () => {
         setCompanyList((companyList) => [
@@ -26,8 +26,9 @@ const Experience = () => {
                 {companyList.length > 0 ? (
                     companyList.map((company, index) => (
                         <Company
-                            data={company}
                             key={company.id}
+                            mode={mode}
+                            data={company}
                             index={index}
                             deleteCompany={deleteCompany}
                             id={company.id}
@@ -38,9 +39,11 @@ const Experience = () => {
                 )}
             </Row>
 
-            <Button className="mb-3" onClick={addCompany}>
-                Add Company
-            </Button>
+            {mode === "edit" && (
+                <Button className="mb-3" onClick={addCompany}>
+                    Add Company
+                </Button>
+            )}
         </>
     );
 };

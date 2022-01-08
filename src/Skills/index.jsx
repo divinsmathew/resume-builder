@@ -8,7 +8,7 @@ const Skills = ({ onChange, skillList, mode }) => (
     <Col md={12} className="divider">
         <div className="primary-heading mt-4 mb-3">Skills</div>
         <FormGroup>
-            {mode === "edit" ? (
+            {mode === "edit" || mode === "create" ? (
                 <CreatableSelect
                     name="skills"
                     isMulti
