@@ -1,6 +1,6 @@
 # Getting Started
 
-Build a simple resume using Resume Builder. This project is created as a part of [impress.ai](https://impress.ai/) recruitment.
+Build a simple resume using Resume Builder. This project was created as a part of [impress.ai](https://impress.ai/) recruitment.
 
 ## Run
 
